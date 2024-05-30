@@ -9,6 +9,8 @@
     display: grid;
     place-items: center;
     overflow: hidden;
+    max-height: 100vh; 
+    overflow-y: auto;
   }
   
   main {
@@ -285,3 +287,5 @@
       font-size: 1.5rem;
     }
   }
+
+  
