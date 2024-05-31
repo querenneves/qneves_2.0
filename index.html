@@ -35,18 +35,37 @@
       height: 100%;
     }
 
-    .footer::after {
-      content: "Feito com ♥️ por Qneves CNPJ: 50.509.761/0001-41";
-      display: block;
+    .footer-container {
+      text-align: center;
+      width: 100%;
+      background-color: #0b7ef1;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      color: white;
+      position: relative;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .social-icons a i {
+      font-size: 1.5rem;
+    }
+
+    .footer-text {
       opacity: 0.6;
       font-size: 0.8rem;
       margin-top: 5px;
     }
-    .graffiti-text {
-            font-family: 'Permanent Marker', cursive; 
-            color: #000000; 
-            text-shadow: 2px 2px 4px #1f07aa;
-        }
   </style>
 </head>
 
@@ -118,16 +137,21 @@
     data-cf-beacon='{"rayId":"88bbde39c87966f9","version":"2024.4.1","token":"cd0b4b3a733644fc843ef0b185f98241"}'
     crossorigin="anonymous"></script>
 
-  <footer class="bg-body-tertiary text-center">
-    <div class="container p-4 pb-0">
-      <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/qnevesdev/" role="button"><i class="fab fa-instagram"></i></a>
-      <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/in/queren-neves/" role="button"><i class="fab fa-linkedin-in"></i></a>
-      <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="https://github.com/querenneves" role="button"><i class="fab fa-github"></i></a>
+    <div class="footer-container">
+      <footer class="bg-body-tertiary text-center">
+        <div class="container p-4 pb-0">
+          <div class="social-icons">
+            <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac; border: 2px solid white;" href="https://www.instagram.com/qnevesdev/" role="button"><i class="fab fa-instagram"></i></a>
+            <a class="btn text-white btn-floating m-1" style="background-color: #0082ca; border: 2px solid white;" href="https://www.linkedin.com/in/queren-neves/" role="button"><i class="fab fa-linkedin-in"></i></a>
+            <a class="btn text-white btn-floating m-1" style="background-color: #333333; border: 2px solid white;" href="https://github.com/querenneves" role="button"><i class="fab fa-github"></i></a>
+
+          </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+          <span class="footer-text">Feito com ♥️ por Qneves CNPJ: 50.509.761/0001-41</span>
+        </div>
+      </footer>
     </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-      <span class="footer"></span>
-    </div>
-  </footer>
 
 </body>
 
