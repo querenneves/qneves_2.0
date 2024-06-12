@@ -1157,6 +1157,7 @@
 }
 .icon-instagram:before {
   content: "\f16d";
+  font-size: 27px;
 }
 .icon-flickr:before {
   content: "\f16e";
@@ -3851,7 +3852,10 @@
 }
 .icon-menu:before {
   content: "\e5d2";
+  color: #9636ad; 
+  font-weight: bold;
 }
+
 .icon-message:before {
   content: "\e0c9";
 }
