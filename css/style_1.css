@@ -70,6 +70,8 @@ a {
     .site-navbar .site-logo a {
       font-weight: 200;
       color: #9636ad;
+      font-weight: 900;
+      text-shadow: 1px 1px 2px #000000; 
       font-size: 20px;
       font-weight: bold;
       text-transform: uppercase; }
