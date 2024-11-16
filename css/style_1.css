@@ -25,7 +25,7 @@ body {
     visibility: visible; }
 
 p {
-  color: #b3b3b3;
+  color: black;
   font-weight: 300; }
 
 h1, h2, h3, h4, h5, h6,
@@ -375,3 +375,210 @@ a {
           color: #000000 !important; }
       .sticky-wrapper.is-sticky .site-navbar .site-navigation .site-menu > li.active a {
         color: #000000; }
+        .master_sobre {
+          padding: 20px;
+        }
+        
+        .sub_sobre {
+          display: flex;
+          flex-direction: column; 
+        }
+        
+        .text_sobre {
+          flex: 1;
+          padding: 10px;
+          max-width: 800px; 
+          text-align: center; 
+        }
+        
+        .image_sobre img {
+          margin-right: 20px; 
+          width: 100%;
+          max-width: 300px; /* Limite de largura para desktops */
+          height: auto;
+          transition: transform 0.3s ease; /* Transição suave para o efeito de flutuação */
+        }
+        
+        .image_sobre img:hover {
+          transform: scale(1.05); /* Efeito de flutuação */
+        }
+        
+        .sub_sobre {
+          display: flex;
+          flex-direction: column; /* Colunas em telas pequenas */
+          align-items: center; /* Centraliza os itens */
+        }
+        /* Estilos específicos para telas maiores */
+        @media (min-width: 600px) {
+          main {
+              margin: 0 20px; /* Aumenta a margem nas laterais em telas maiores */
+          }
+        
+          .sub_sobre {
+              flex-direction: row; /* Mudando para linha em telas maiores */
+              align-items: flex-start; /* Alinhamento inicial */
+          }
+        
+          .text_sobre, .image_sobre {
+            max-width: 100%; /* Limita a largura máxima da imagem ao tamanho do contêiner */
+            height: auto; /* Mantém a proporção da imagem */
+            display: block; /* Remove espaços em branco em volta da imagem */
+            margin: 0 auto;
+            
+          }
+        
+          .text_sobre {
+              padding: 20px; /* Adiciona mais padding ao texto em telas maiores */
+          }
+        }
+   
+        .servicos {
+          display: flex;
+          flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas se necessário */
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px;
+        }
+        
+        .card {
+          flex: 1;
+          min-width: 260px; /* Define um valor mínimo para que os cards não fiquem muito pequenos */
+          max-width: 300px;
+          position: relative;
+          height: auto; /* Permite que a altura se ajuste com o conteúdo */
+          background: linear-gradient(-45deg, #9536ad79 0%, #007bff 100%);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .card img {
+          width: 100%; /* Assegura que a imagem ocupe toda a largura do card */
+          height: auto; /* Mantém a proporção da imagem */
+          object-fit: cover; /* Assegura que a imagem cubra todo o espaço disponível */
+        }
+        
+        .card svg {
+          width: 48px;
+          fill: #333;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .card:hover {
+          transform: rotate(-5deg) scale(1.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card__content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: auto;
+          padding: 20px;
+          box-sizing: border-box;
+          background-color: #fff;
+          opacity: 0;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+          overflow-y: auto;
+        }
+        
+        .card:hover .card__content {
+          transform: translate(-50%, -50%) rotate(0deg);
+          opacity: 1;
+        }
+        
+        .card__title {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+          font-weight: 700;
+        }
+        
+        .card__description {
+          margin: 10px 0 0;
+          font-size: 14px;
+          color: #777;
+          line-height: 1.4;
+        }
+        
+        .card:hover svg {
+          scale: 0;
+          transform: rotate(-45deg);
+        }
+        
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+          .servicos {
+              flex-direction: column; /* Empilha os cards verticalmente */
+              align-items: center;
+          }
+        
+          .card {
+              max-width: 100%; /* Permite que os cards ocupem toda a largura em telas menores */
+              margin-bottom: 20px; /* Espaçamento entre os cards */
+          }
+        
+          .card__content {
+              position: relative;
+              top: auto;
+              left: auto;
+              transform: none;
+              opacity: 1;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .card__title {
+              font-size: 18px;
+          }
+        
+          .card__description {
+              font-size: 12px;
+          }
+        }
+        .cards {
+          display: flex;
+          gap: 20px; /* Espaço entre os cards */
+          justify-content: center; /* Centraliza os cards */
+          flex-wrap: wrap; /* Faz com que os cards quebrem a linha em telas menores */
+        }
+        
+        .card {
+          background-color: #f5f5f5; /* Cor de fundo dos cards */
+          padding: 20px;
+          border-radius: 10px;
+          width: 250px; /* Largura dos cards */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+        }
+        
+        .red {
+          background-color: #ffccd5;
+        }
+        
+        .blue {
+          background-color: #cce5ff;
+        }
+        
+        .green {
+          background-color: #d4edda;
+        }
+        
+        .tip {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        
+        .second-text {
+          font-size: 14px;
+          margin-top: 10px;
+        }
+        /* Estilos para o layout */
+        .master_sobre {
+          padding: 20px;
+        }
+        
