@@ -434,18 +434,17 @@ a {
    
         .servicos {
           display: flex;
-          flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas se necessário */
-          justify-content: space-between;
-          gap: 20px;
-          padding: 20px;
+          flex-wrap: wrap; /* Permite que os cards "quebrem linha" em telas menores */
+          justify-content: center; /* Centraliza os cards */
+          gap: 20px; /* Espaçamento entre os cards */
         }
         
         .card {
           flex: 1;
-          min-width: 260px; /* Define um valor mínimo para que os cards não fiquem muito pequenos */
+          min-width: 260px;
           max-width: 300px;
           position: relative;
-          height: auto; /* Permite que a altura se ajuste com o conteúdo */
+          height: auto;
           background: linear-gradient(-45deg, #9536ad79 0%, #007bff 100%);
           border-radius: 10px;
           display: flex;
@@ -456,15 +455,9 @@ a {
         }
         
         .card img {
-          width: 100%; /* Assegura que a imagem ocupe toda a largura do card */
-          height: auto; /* Mantém a proporção da imagem */
-          object-fit: cover; /* Assegura que a imagem cubra todo o espaço disponível */
-        }
-        
-        .card svg {
-          width: 48px;
-          fill: #333;
-          transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+          width: 100%;
+          height: auto;
+          object-fit: cover;
         }
         
         .card:hover {
@@ -478,9 +471,7 @@ a {
           left: 50%;
           transform: translate(-50%, -50%);
           width: 100%;
-          height: auto;
           padding: 20px;
-          box-sizing: border-box;
           background-color: #fff;
           opacity: 0;
           transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -506,41 +497,53 @@ a {
           line-height: 1.4;
         }
         
-        .card:hover svg {
-          scale: 0;
-          transform: rotate(-45deg);
-        }
-        
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
+        /* Responsividade */
+        @media (max-width: 1024px) {
           .servicos {
-              flex-direction: column; /* Empilha os cards verticalmente */
-              align-items: center;
+            gap: 15px; /* Reduz o espaçamento entre os cards */
           }
         
           .card {
-              max-width: 100%; /* Permite que os cards ocupem toda a largura em telas menores */
-              margin-bottom: 20px; /* Espaçamento entre os cards */
+            max-width: calc(50% - 20px); /* Permite dois cards lado a lado */
+            flex: 1 1 calc(50% - 20px);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .servicos {
+            flex-direction: column; /* Empilha os cards verticalmente */
+            align-items: center;
+          }
+        
+          .card {
+            max-width: 100%; /* Cards ocupam toda a largura disponível */
+            margin-bottom: 20px;
           }
         
           .card__content {
-              position: relative;
-              top: auto;
-              left: auto;
-              transform: none;
-              opacity: 1;
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            opacity: 1;
           }
+          @media (max-width: 768px) {
+            .card:hover {
+              transform: none; /* Remove a rotação e o efeito de escala */
+              box-shadow: none; /* Remove o sombreamento adicional no hover */
+            }
         }
         
         @media (max-width: 480px) {
           .card__title {
-              font-size: 18px;
+            font-size: 18px;
           }
         
           .card__description {
-              font-size: 12px;
+            font-size: 12px;
           }
         }
+        
         .cards {
           display: flex;
           gap: 20px; /* Espaço entre os cards */
