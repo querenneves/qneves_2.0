@@ -1,6 +1,7 @@
 body {
   font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background-color:  #476badce;
+  background: linear-gradient(to bottom, #b3e0ff, #ffffff);
+  background-attachment: fixed; 
   height: 200vh;
   position: relative; }
   body:before {
@@ -70,93 +71,122 @@ a {
   padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .servicos {
   display: flex;
-  flex-wrap: wrap; /* Permite que os cards se ajustem em várias linhas se necessário */
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Título da seção */
+.servicos-title {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #4A4A4A;
+  margin-bottom: 30px;
 }
 
 .card {
-  flex: 1;
-  min-width: 260px; /* Define um valor mínimo para que os cards não fiquem muito pequenos */
-  max-width: 300px;
+  font-family: Arial, sans-serif;
   position: relative;
-  height: auto; /* Permite que a altura se ajuste com o conteúdo */
-  background: linear-gradient(-45deg, #5c3a00 0%, #b8860b 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.card img {
-  width: 100%; /* Assegura que a imagem ocupe toda a largura do card */
-  height: auto; /* Mantém a proporção da imagem */
-  object-fit: cover; /* Assegura que a imagem cubra todo o espaço disponível */
-}
-
-.card svg {
-  width: 48px;
-  fill: #333;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.card:hover {
-  transform: rotate(-5deg) scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: auto;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
   padding: 20px;
-  box-sizing: border-box;
-  background-color: #ffffff57;
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow-y: auto;
+  width: 100%;
+  min-height: 400px;
+  max-width: 350px;
+  height: 100%; 
+  align-items: stretch;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-.card:hover .card__content {
-  transform: translate(-50%, -50%) rotate(0deg);
-  opacity: 1;
+/* Efeito de hover */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.card__title {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-  font-weight: 700;
+/* Sobreposição para melhorar a legibilidade */
+.card::before {
+background: rgba(0, 0, 0, 0.2); 
 }
 
-.card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #000000;
-  line-height: 1.4;
+/* Ajuste do conteúdo dentro dos cards */
+.card-content {
+text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Título do card */
+.title {
+  font-size: px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.card:hover svg {
-  scale: 0;
-  transform: rotate(-45deg);
+/* Texto do card */
+.ptexto {
+text-align: left;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* Imagens de fundo */
+.card.portfólio {
+  background: url("../images/web.png") center/cover no-repeat;
+}
+
+.card.educacao {
+  background: url("../images/palestrante.png") center/cover no-repeat;
+}
+
+.card.analise {
+  background: url("../images/download.jpeg") center/cover no-repeat;
+}
+
+/* Para telas pequenas (até 767px) - Cards ocupam 100% da largura */
+@media (max-width: 767px) {
+.card {
+    width: 100%; /* Ocupa a largura total */
+    margin: 10px 0; /* Espaçamento entre os cards */
+}
+
+.title {
+    font-size: 18px;
+}
+
+.ptexto {
+    font-size: 14px;
+}
+}
+
+/* Para tablets (768px até 1023px) - Cards em 2 colunas */
+@media (min-width: 768px) and (max-width: 1023px) {
+.card {
+    width: calc(50% - 10px); /* Duas colunas */
+}
+}
+
+/* Para telas grandes (1024px ou mais) - Cards em 3 colunas */
+@media (min-width: 1024px) {
+.card {
+    width: calc(33.33% - 10px); /* Três colunas */
+}
 }
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
-  .servicos {
-      flex-direction: column; /* Empilha os cards verticalmente */
-      align-items: center;
-  }
 
   .card {
       max-width: 100%; /* Permite que os cards ocupem toda a largura em telas menores */
@@ -264,6 +294,7 @@ a {
 
 .cards .card {
   display: flex;
+  max-width: 350px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -306,4 +337,163 @@ a {
 .cards:hover > .card:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9, 0.9);
+}
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column; /* Empilha os cards verticalmente */
+    align-items: center; /* Centraliza os cards */
+  }
+
+  .cards .card {
+    width: 90%; /* Ajusta a largura para telas menores */
+    max-width: 300px;
+  }
+}
+.master_sobre {
+  background: url('https://source.unsplash.com/1600x900/?sky,clouds') no-repeat center center/cover;
+  background-size: cover; /* Ajusta o fundo para cobrir toda a área */
+  padding: 20px;
+  border-radius: 10px;
+  color: #333; /* Cor do texto */
+}
+.text_sobre {
+  margin-right: 20px;
+  background: linear-gradient(to bottom, #b3e0ff, #ffffff); /* Gradiente de azul claro para branco */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+}
+.text_sobre p {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #333; /* Cor do texto */
+}
+.avaliacoes-wrapper {
+  height: 800px;
+  min-height: 250px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 90%;
+  gap: 20px;
+}
+
+.avaliacoes {
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  justify-content: space-between; 
+  height: 100%;
+  display: inline-block;
+}
+
+.avaliacoes:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating i {
+  color: gold;
+  font-size: 20px;
+  margin: 0 2px;
+}
+
+.review-text {
+  height: 150px;
+  min-height: 120px;
+  max-height: 150px;
+  overflow-y: auto;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile .linkedin-logo {
+  position: absolute;
+  top: 100%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+}
+
+.name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .avaliacoes {
+      width: 100%;
+      margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .avaliacoes {
+      width: 100%;
+      padding: 15px;
+  }
+
+  .profile img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .profile .linkedin-logo {
+      width: 15px;
+      height: 15px;
+  }
+
+  .rating i {
+      font-size: 18px;
+  }
+
+  .review-text,
+  .name {
+      font-size: 16px;
+  }
+}
+.titulo-destaque {
+  font-family: 'Merriweather', serif; /* Fonte serifada e acolhedora */
+  font-size: 2rem; /* Ajuste o tamanho conforme necessário */
+  font-weight: 700; /* Peso para deixar o texto negrito */
+  color: #548da8; /* Cor da paleta */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Sombreado mais forte */
+  line-height: 1.1;
+}
+
+li {
+line-height: 1.1; /* Aumenta o espaço entre as linhas de cada item */
+}
+.texto-com-espaco {
+line-height: 1.1; 
 }
